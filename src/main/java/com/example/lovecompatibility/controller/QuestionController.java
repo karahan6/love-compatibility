@@ -2,6 +2,7 @@ package com.example.lovecompatibility.controller;
 
 import com.example.lovecompatibility.domain.Question;
 import com.example.lovecompatibility.repository.QuestionRepository;
+import com.example.lovecompatibility.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,16 +13,14 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/question")
+@RequestMapping("/api/questions")
 public class QuestionController
 {
     @Autowired
-    private QuestionRepository questionRepository;
+    private QuestionService questionService;
 
-    @GetMapping("/listAll")
+    @GetMapping("")
     public List<Question> listAll() {
-        List<Question> questions = questionRepository.findAll();
-
-        return questions;
+        return questionService.findAll();
     }
 }
