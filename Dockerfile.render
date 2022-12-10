@@ -46,7 +46,3 @@ COPY --from=builder --chown=1000:1000 /app /app/
 USER 1000:1000
 WORKDIR /app
 
-# This sources all /app/.profile.d/*.sh files before process start.
-# These are created by buildpacks, and you probably don't have to worry about this.
-# https://devcenter.heroku.com/articles/buildpack-api#profile-d-scripts
-ENTRYPOINT [ "/render/setup-env" ]
