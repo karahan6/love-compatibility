@@ -1,7 +1,6 @@
 package com.example.lovecompatibility.controller;
 
 import com.example.lovecompatibility.domain.Question;
-import com.example.lovecompatibility.repository.QuestionRepository;
 import com.example.lovecompatibility.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,5 +21,11 @@ public class QuestionController
     @GetMapping("")
     public List<Question> listAll() {
         return questionService.findAll();
+    }
+
+
+    @GetMapping("test")
+    public String test() {
+        return "questionService.findAll()";
     }
 }
